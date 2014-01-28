@@ -7,19 +7,19 @@ public class AssortedMethods {
 	public static int randomInt(int n) {
 		return (int) (Math.random() * n);
 	}
-	
+
 	public static int randomIntInRange(int min, int max) {
 		return randomInt(max + 1 - min) + min;
 	}
-	
+
 	public static boolean randomBoolean() {
 		return randomIntInRange(0, 1) == 0;
-	}	
-	
+	}
+
 	public static boolean randomBoolean(int percentTrue) {
 		return randomIntInRange(1, 100) <= percentTrue;
-	}		
-	
+	}
+
 	public static int[][] randomMatrix(int M, int N, int min, int max) {
 		int[][] matrix = new int[M][N];
 		for (int i = 0; i < M; i++) {
@@ -29,7 +29,7 @@ public class AssortedMethods {
 		}
 		return matrix;
 	}
-	
+
 	public static int[] randomArray(int N, int min, int max) {
 		int[] array = new int[N];
 		for (int j = 0; j < N; j++) {
@@ -37,7 +37,7 @@ public class AssortedMethods {
 		}
 		return array;
 	}
-	
+
 	public static LinkedListNode randomLinkedList(int N, int min, int max) {
 		LinkedListNode root = new LinkedListNode(randomIntInRange(min, max), null, null);
 		LinkedListNode prev = root;
@@ -49,7 +49,7 @@ public class AssortedMethods {
 		}
 		return root;
 	}
-	
+
 	public static LinkedListNode linkedListWithValue(int N, int value) {
 		LinkedListNode root = new LinkedListNode(value, null, null);
 		LinkedListNode prev = root;
@@ -59,8 +59,8 @@ public class AssortedMethods {
 			prev = next;
 		}
 		return root;
-	}	
-	
+	}
+
 	public static String arrayToString(int[] array) {
 		StringBuilder sb = new StringBuilder();
 		for (int v : array) {
@@ -68,7 +68,7 @@ public class AssortedMethods {
 		}
 		return sb.toString();
 	}
-	
+
 	public static String stringArrayToString(String[] array) {
 		StringBuilder sb = new StringBuilder();
 		for (String v : array) {
@@ -76,7 +76,7 @@ public class AssortedMethods {
 		}
 		return sb.toString();
 	}
-	
+
 	public static String toFullBinaryString(int a) {
 		String s = "";
 		for (int i = 0; i < 32; i++) {
@@ -86,9 +86,9 @@ public class AssortedMethods {
 		}
 		return s;
 	}
-	
+
 	public static String toBaseNString(int a, int base) {
-		
+
 		String s = "";
 		while (true) {
 			int lastdigit = a % base;
@@ -96,11 +96,13 @@ public class AssortedMethods {
 			a = a / base;
 			if (a == 0) break;
 		}
-		
+
 		return s;
-	}	
-	
+	}
+
 	public static void printMatrix(int[][] matrix) {
+		System.out.println();
+
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[i].length; j++) {
 				if (matrix[i][j] < 10 && matrix[i][j] > -10) {
@@ -108,16 +110,16 @@ public class AssortedMethods {
 				}
 				if (matrix[i][j] < 100 && matrix[i][j] > -100) {
 					System.out.print(" ");
-				}					
+				}
 				if (matrix[i][j] >= 0) {
 					System.out.print(" ");
 				}
-				System.out.print(" " + matrix[i][j]);				
+				System.out.print(" " + matrix[i][j]);
 			}
 			System.out.println();
 		}
 	}
-	
+
 	public static void printMatrix(boolean[][] matrix) {
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[i].length; j++) {
@@ -129,15 +131,15 @@ public class AssortedMethods {
 			}
 			System.out.println();
 		}
-	}	
-	
+	}
+
 	public static void printIntArray(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
 		}
 		System.out.println("");
 	}
-	
+
 	public static String charArrayToString(char[] array) {
 		StringBuilder buffer = new StringBuilder(array.length);
 		for (char c : array) {
@@ -148,7 +150,7 @@ public class AssortedMethods {
 		}
 		return buffer.toString();
 	}
-	
+
 	public static String listOfPointsToString(ArrayList<Point> list) {
 		StringBuilder buffer = new StringBuilder();
 		for (Point p : list) {
@@ -156,7 +158,7 @@ public class AssortedMethods {
 		}
 		return buffer.toString();
 	}
-	
+
 	public static TreeNode randomBST(int N, int min, int max) {
 		int d = randomIntInRange(min, max);
 		TreeNode root = new TreeNode(d);
@@ -165,12 +167,12 @@ public class AssortedMethods {
 		}
 		return root;
 	}
-	
+
 	/* Creates tree by mapping the array left to right, top to bottom. */
 	public static TreeNode createTreeFromArray(int[] array) {
 		if (array.length > 0) {
 			TreeNode root = new TreeNode(array[0]);
-			java.util.Queue<TreeNode> queue = 
+			java.util.Queue<TreeNode> queue =
 				new java.util.LinkedList<TreeNode>();
 			queue.add(root);
 			boolean done = false;
@@ -195,23 +197,23 @@ public class AssortedMethods {
 			return null;
 		}
 	}
-	
+
 	public static String getLongTextBlob() {
 		String book = "As they rounded a bend in the path that ran beside the river, Lara recognized the silhouette of a fig tree atop a nearby hill. The weather was hot and the days were long. The fig tree was in full leaf, but not yet bearing fruit. " +
-		"Soon Lara spotted other landmarks—an outcropping of limestone beside the path that had a silhouette like a man’s face, a marshy spot beside the river where the waterfowl were easily startled, a tall tree that looked like a man with his arms upraised. They were drawing near to the place where there was an island in the river. The island was a good spot to make camp. They would sleep on the island tonight." +
-		"Lara had been back and forth along the river path many times in her short life. Her people had not created the path—it had always been there, like the river—but their deerskin-shod feet and the wooden wheels of their handcarts kept the path well worn. Lara’s people were salt traders, and their livelihood took them on a continual journey. ";
+		"Soon Lara spotted other landmarksï¿½an outcropping of limestone beside the path that had a silhouette like a manï¿½s face, a marshy spot beside the river where the waterfowl were easily startled, a tall tree that looked like a man with his arms upraised. They were drawing near to the place where there was an island in the river. The island was a good spot to make camp. They would sleep on the island tonight." +
+		"Lara had been back and forth along the river path many times in her short life. Her people had not created the pathï¿½it had always been there, like the riverï¿½but their deerskin-shod feet and the wooden wheels of their handcarts kept the path well worn. Laraï¿½s people were salt traders, and their livelihood took them on a continual journey. ";
 		String book_mod = book.replace('.', ' ').replace(',', ' ').replace('-', ' ');
 		return book_mod;
 	}
-	
+
 	public static String[] getLongTextBlobAsStringList() {
 		return getLongTextBlob().split(" ");
 	}
-	
+
 	public static Trie getTrieDictionary() {
 		return new Trie(getListOfWords());
 	}
-	
+
 	public static String[] getListOfWords() {
 		// Words in the dictionary.
 		String[] wordList = {
@@ -362,7 +364,7 @@ public class AssortedMethods {
 			"same",
 			"another",
 			"think",
-			"abuse", 
+			"abuse",
 			"house",
 			"while",
 			"high",

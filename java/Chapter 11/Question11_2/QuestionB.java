@@ -12,20 +12,20 @@ public class QuestionB {
 		Arrays.sort(content);
 		return new String(content);
 	}
-	
+
 	public static void sort(String[] array) {
 		Hashtable<String, LinkedList<String>> hash = new Hashtable<String, LinkedList<String>>();
-		
-		/* Group words by anagram */
+
+		/* Group words by usingCharCounts */
 		for (String s : array) {
-			String key = sortChars(s); 
+			String key = sortChars(s);
 			if (!hash.containsKey(key)) {
 				hash.put(key, new LinkedList<String>());
 			}
 			LinkedList<String> anagrams = hash.get(key);
 			anagrams.push(s);
 		}
-		
+
 		/* Convert hash table to array */
 		int index = 0;
 		for (String key : hash.keySet()) {
@@ -36,7 +36,7 @@ public class QuestionB {
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		String[] array = {"apple", "banana", "carrot", "ele", "duck", "papel", "tarroc", "cudk", "eel", "lee"};
 		sort(array);

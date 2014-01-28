@@ -3,6 +3,7 @@ package Question1_4;
 import CtCILibrary.AssortedMethods;
 
 public class Question {
+
 	// Assume string has sufficient free space at the end
 	public static void replaceSpaces(char[] str, int length) {
 		int spaceCount = 0, index, i = 0;
@@ -25,14 +26,34 @@ public class Question {
 			}
 		}
 	}
-	
+
+	public static String replaceSpacesInString(String original, String replChars) {
+		String result = null;
+		StringBuffer targetStringBuffer = new StringBuffer();
+
+		char[] chars = original.toCharArray();
+
+		for (int i=0; i<original.length(); i++) {
+			if (chars[i] == ' ') {
+				targetStringBuffer.append(replChars);
+			} else {
+				targetStringBuffer.append(chars[i]);
+			}
+		}
+        return targetStringBuffer.toString();
+	}
+
 	public static void main(String[] args) {
 		String str = "abc d e f";
+
 		char[] arr = new char[str.length() + 3 * 2 + 1];
+
 		for (int i = 0; i < str.length(); i++) {
 			arr[i] = str.charAt(i);
 		}
-		replaceSpaces(arr, str.length());	
+
+		replaceSpaces(arr, str.length());
 		System.out.println("\"" + AssortedMethods.charArrayToString(arr) + "\"");
+		System.out.println("\"" + replaceSpacesInString(str, "%20") + "\"");
 	}
 }

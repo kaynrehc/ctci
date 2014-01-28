@@ -14,7 +14,7 @@ public class Question {
 		}
 		return true;
 	}
-	
+
 	public static boolean isUniqueChars2(String str) {
 		if (str.length() > 256) {
 			return false;
@@ -27,7 +27,7 @@ public class Question {
 		}
 		return true;
 	}
-	
+
 	public static void main(String[] args) {
 		String[] words = {"abcde", "hello", "apple", "kite", "padle"};
 		for (String word : words) {
